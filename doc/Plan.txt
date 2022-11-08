@@ -32,3 +32,13 @@ methods to check pack validity
 player
 list of decks
 
+Card Tests:
+donininination Test
+synchronisation Test
+
+Player Method/Tests:
+constructor(player number, decks on either side)
+write to file - test with dummy data
+choose card to discard - test it
+run which picks card to dicard then removes it and replaces with new from other deck - test it
+add card/remove card - test
