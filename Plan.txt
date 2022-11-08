@@ -15,6 +15,7 @@ player hand - Array
 deck to collect card from
 deck to place card to
 methods synchronised
+name of output file/create output file
 
 CardDeck Overview:
 cards - queue
@@ -23,5 +24,8 @@ Cardgame overview:
 Methods to play
 number of players
 number of decks
-location of input pack
+location of input pack/name of txt doc/file location
+list of cards that make the pack
+methods to check pack validity
+player
 
