@@ -1,19 +1,27 @@
 public class Player extends Thread{
 
     private String playerName;
-    private int Number;
+    private int number;
     private Card[] hand;
     private CardDeck leftDeck;
-    private CardDeck RightDeck;
-    
-    public Player (int Number){
-        setName("player"+Number);
-        setNumber(Number);
+    private CardDeck rightDeck;
+    private String outputFile;
+ 
+    public Player (int number){
+        setName("player"+number);
+        setNumber(number);
         setHand(new Card[4]);
+        setOutputFile("player"+number+".txt");
     }
-    
+        
+    public String getOutputFile() {
+        return outputFile;
+    }
+    public void setOutputFile(String outputFile) {
+        this.outputFile = outputFile;
+    }
     public void setRightDeck(CardDeck rightDeck) {
-        RightDeck = rightDeck;
+        this.rightDeck = rightDeck;
     }
     public void setLeftDeck(CardDeck leftDeck) {
         this.leftDeck = leftDeck;
@@ -22,7 +30,7 @@ public class Player extends Thread{
         return leftDeck;
     }
     public CardDeck getRightDeck() {
-        return RightDeck;
+        return rightDeck;
     }
     public String getplayerName() {
         return playerName;
@@ -31,10 +39,10 @@ public class Player extends Thread{
         this.playerName = name;
     }
     public int getNumber() {
-        return Number;
+        return number;
     }
     public void setNumber(int number) {
-        Number = number;
+        number = number;
     }
     public Card[] getHand() {
         return hand;
