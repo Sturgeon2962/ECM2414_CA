@@ -3,6 +3,8 @@ Card - thread safe
 Player - thread safe
 CardDeck
 CardGame
+EventListner
+Events
 
 Card overview:
 Integer for denomination - INT
