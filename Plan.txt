@@ -1,0 +1,9 @@
+Class we need:
+Card - thread safe
+Player - thread safe
+CardDeck
+CardGame
+
+Card overview:
+Integer for denomination
+synchronised
