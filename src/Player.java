@@ -2,8 +2,8 @@ import java.lang.reflect.Array;
 
 public class Player {
 
-    public String name;
-    public Integer Number;
+    private String name;
+    private Integer Number;
     private Array hand;
     
     public String getName() {
