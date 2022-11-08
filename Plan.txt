@@ -7,3 +7,8 @@ CardGame
 Card overview:
 Integer for denomination
 synchronised
+<<<<<<< HEAD
+=======
+Test from VScode
+test 2
+>>>>>>> a246ab9e4f168ae6e9d1914331790b049b079cc8
