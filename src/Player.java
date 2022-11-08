@@ -1,10 +1,8 @@
-import java.lang.reflect.Array;
-
 public class Player {
 
     private String name;
     private Integer Number;
-    private Array hand;
+    private Card[] hand;
     
     public String getName() {
         return name;
@@ -18,10 +16,12 @@ public class Player {
     public void setNumber(Integer number) {
         Number = number;
     }
-    public Array getHand() {
+    public Card[] getHand() {
         return hand;
     }
-    public void setHand(Array hand) {
+    public void setHand(Card[] hand) {
         this.hand = hand;
     }
 }
+
+
