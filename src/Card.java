@@ -1,4 +1,4 @@
-public class Card {
+public class Card extends Thread {
     /**
      * attributes for the card class
      */

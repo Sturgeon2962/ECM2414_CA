@@ -1,27 +1,55 @@
-import java.lang.reflect.Array;
+public class Player extends Thread{
 
-public class Player {
-
-    public String name;
-    public Integer Number;
-    private Array hand;
-    
-    public String getName() {
-        return name;
+    private String playerName;
+    private int number;
+    private Card[] hand;
+    private CardDeck leftDeck;
+    private CardDeck rightDeck;
+    private String outputFile;
+ 
+    public Player (int number){
+        setName("player"+number);
+        setNumber(number);
+        setHand(new Card[4]);
+        setOutputFile("player"+number+".txt");
     }
-    public void setName(String name) {
-        this.name = name;
+        
+    public String getOutputFile() {
+        return outputFile;
     }
-    public Integer getNumber() {
-        return Number;
+    public void setOutputFile(String outputFile) {
+        this.outputFile = outputFile;
     }
-    public void setNumber(Integer number) {
-        Number = number;
+    public void setRightDeck(CardDeck rightDeck) {
+        this.rightDeck = rightDeck;
     }
-    public Array getHand() {
+    public void setLeftDeck(CardDeck leftDeck) {
+        this.leftDeck = leftDeck;
+    }
+    public CardDeck getLeftDeck() {
+        return leftDeck;
+    }
+    public CardDeck getRightDeck() {
+        return rightDeck;
+    }
+    public String getplayerName() {
+        return playerName;
+    }
+    public void setplayerName(String name) {
+        this.playerName = name;
+    }
+    public int getNumber() {
+        return number;
+    }
+    public void setNumber(int number) {
+        number = number;
+    }
+    public Card[] getHand() {
         return hand;
     }
-    public void setHand(Array hand) {
+    public void setHand(Card[] hand) {
         this.hand = hand;
     }
 }
+
+
