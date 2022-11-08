@@ -7,4 +7,3 @@ CardGame
 Card overview:
 Integer for denomination
 synchronised
-Test from VScode
