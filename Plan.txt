@@ -5,11 +5,23 @@ CardDeck
 CardGame
 
 Card overview:
-Integer for denomination
+Integer for denomination - INT
 synchronised
 
 PLayer overview:
 player Identity/name
-player number
-player hand
+player number - INT
+player hand - Array
+deck to collect card from
+deck to place card to
+methods synchronised
+
+CardDeck Overview:
+cards - queue
+
+Cardgame overview:
+Methods to play
+number of players
+number of decks
+location of input pack
 
