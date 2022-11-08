@@ -1,19 +1,39 @@
-public class Player {
+public class Player extends Thread{
 
-    private String name;
-    private Integer Number;
+    private String playerName;
+    private int Number;
     private Card[] hand;
+    private CardDeck leftDeck;
+    private CardDeck RightDeck;
     
-    public String getName() {
-        return name;
+    public Player (int Number){
+        setName("player"+Number);
+        setNumber(Number);
+        setHand(new Card[4]);
     }
-    public void setName(String name) {
-        this.name = name;
+    
+    public void setRightDeck(CardDeck rightDeck) {
+        RightDeck = rightDeck;
     }
-    public Integer getNumber() {
+    public void setLeftDeck(CardDeck leftDeck) {
+        this.leftDeck = leftDeck;
+    }
+    public CardDeck getLeftDeck() {
+        return leftDeck;
+    }
+    public CardDeck getRightDeck() {
+        return RightDeck;
+    }
+    public String getplayerName() {
+        return playerName;
+    }
+    public void setplayerName(String name) {
+        this.playerName = name;
+    }
+    public int getNumber() {
         return Number;
     }
-    public void setNumber(Integer number) {
+    public void setNumber(int number) {
         Number = number;
     }
     public Card[] getHand() {
