@@ -42,7 +42,7 @@ public class Player extends Thread{
         return number;
     }
     public void setNumber(int number) {
-        number = number;
+        this.number = number;
     }
     public Card[] getHand() {
         return hand;
