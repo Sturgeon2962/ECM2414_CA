@@ -7,3 +7,9 @@ CardGame
 Card overview:
 Integer for denomination
 synchronised
+
+PLayer overview:
+player Identity/name
+player number
+player hand
+
