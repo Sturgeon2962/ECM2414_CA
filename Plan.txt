@@ -28,4 +28,5 @@ location of input pack/name of txt doc/file location
 list of cards that make the pack
 methods to check pack validity
 player
+list of decks
 
