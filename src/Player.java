@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 public class Player extends Thread{
 
     private String playerName;
@@ -49,6 +53,44 @@ public class Player extends Thread{
     }
     public void setHand(Card[] hand) {
         this.hand = hand;
+    }
+
+    public int selectDiscardCard() {
+        ArrayList<Card> discardCandidates = new ArrayList<>();
+
+        for (Card card : this.hand) {
+            if (card.getDenomination() != this.number) {
+                discardCandidates.add(card);
+            }
+        }
+
+        Collections.shuffle(discardCandidates);
+
+        Card toDisCard = discardCandidates.get(0);
+
+        for (int i = 0; i < hand.length; i++) {
+            if (this.hand[i].equals(toDisCard)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public void addCard(Card newCard) throws HandFullException {
+        for (int i = 0; i < this.hand.length; i++) {
+            if (this.hand[i] == null) {
+                this.hand[i] = newCard;
+                return;
+            }
+        }
+        throw new HandFullException("Hand is full of cards");
+    }
+
+    public Card removeCard(int index) {
+        Card temp = this.hand[index];
+        this.hand[index] = null;
+        return temp;
     }
 }
 
