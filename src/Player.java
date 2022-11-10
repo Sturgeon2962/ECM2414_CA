@@ -6,7 +6,7 @@ public class Player extends Thread{
     private CardDeck leftDeck;
     private CardDeck rightDeck;
     private String outputFile;
- 
+
     public Player (int number){
         setName("player"+number);
         setNumber(number);
