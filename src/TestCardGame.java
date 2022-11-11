@@ -3,6 +3,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.io.Console;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -19,7 +20,8 @@ public class TestCardGame {
         InputStream newStream = new FileInputStream("src/playerInputsTest.txt");
         System.setIn(newStream);
         try {
-            assertEquals(4, );
+            Console console = System.console();
+            assertEquals(4, CardGame.getNumOfPlayers(console));
         } finally {
             System.setIn(prev);
         }
