@@ -8,10 +8,16 @@ public class CardGame {
 
     public static int numPlayers;
     public static ArrayList<Card> mainDeck;
+    public static ArrayList<Player> players;
     public static void main(String[] args) {
         Console console = System.console();
         numPlayers = getNumOfPlayers(console);
         mainDeck = getDeck(console);
+
+        for (int x = 0; x < numPlayers; x++){
+            players.add(new Player(x+1));
+        }
+        
     }
     
     public static int getNumOfPlayers(Console console){
@@ -42,9 +48,10 @@ public class CardGame {
             } catch (FileNotFoundException e) {
                 System.out.println("Hmm, where the file at?");
             } catch (Exception e) {
-                // TODO - Tom
+                System.out.println("An error has occured when attmpting to retrive the file. Please restart and try again.");
             }
         } while (cardNumbers.size() != 8*numPlayers);
         return cardNumbers;
     }
 }
+

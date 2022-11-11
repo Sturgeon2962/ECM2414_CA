@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class Player extends Thread{
+public class Player extends Thread implements EndGameEventListener{
 
     private String playerName;
     private int number;
@@ -16,7 +17,10 @@ public class Player extends Thread{
         setNumber(number);
         setHand(new Card[4]);
         setOutputFile("player"+number+".txt");
+        
     }
+
+
         
     public String getOutputFile() {
         return outputFile;
@@ -91,6 +95,33 @@ public class Player extends Thread{
         Card temp = this.hand[index];
         this.hand[index] = null;
         return temp;
+    }
+
+    public boolean checkWin(){
+        boolean win = true;
+        int firstCard = hand[0].getDenomination();
+        for(Card card : hand){
+            if(card.getDenomination() != firstCard){
+                win = false;
+                break;
+            }
+        }
+        return win;
+    }
+
+    @Override
+    public void eventOccured(EndGameEvent event) throws IOException{
+        // TODO what the fuck happens when the game ends
+    }
+
+    @Override
+    public void run(){
+        if(checkWin()){
+
+        } else {
+            Card cardToRemove = removeCard(selectDiscardCard());
+
+        }
     }
 }
 
