@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.experimental.categories.Category;
 
 public class TestCardDeck {
-    TestCardDeck(){}
+    public TestCardDeck(){}
 
     @Test
     public void TestAddCard(){
