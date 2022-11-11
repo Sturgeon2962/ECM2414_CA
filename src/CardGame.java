@@ -5,9 +5,16 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class CardGame {
+
+    public static int numPlayers;
+    public static ArrayList<Card> mainDeck;
     public static void main(String[] args) {
         Console console = System.console();
-        
+        numPlayers = getNumOfPlayers(console);
+        mainDeck = getDeck(console);
+    }
+    
+    public static int getNumOfPlayers(Console console){
         System.out.println("Please enter the number of players:");
         int numPlayers = -1;
         do {
@@ -18,21 +25,26 @@ public class CardGame {
                 System.out.println("That's not a valid number of players");
             }
         } while (numPlayers <= 0);
+        
+        return numPlayers;
+    }
 
-        ArrayList<Integer> cardNumber = new ArrayList<>();
+    public static ArrayList<Card> getDeck(Console console){
+        ArrayList<Card> cardNumbers = new ArrayList<>();
         do {
             System.out.println("Please enter valid deck location:");
             String deckLocation = console.readLine();
             try (BufferedReader reader = new BufferedReader(new FileReader(deckLocation))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    cardNumber.add(Integer.valueOf(line));
+                    cardNumbers.add(new Card(Integer.valueOf(line)));
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("Hmm, where the file at?");
             } catch (Exception e) {
                 // TODO - Tom
             }
-        } while (cardNumber.size() != 8*numPlayers);
+        } while (cardNumbers.size() != 8*numPlayers);
+        return cardNumbers;
     }
 }
