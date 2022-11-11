@@ -48,5 +48,16 @@ public class TestPlayer {
         assertEquals(player.getHand()[player.selectDiscardCard()].getDenomination(), new Card(2).getDenomination());
     }
 
-    
+    @Test
+    public void TestWin() throws HandFullException{
+        Player player = new Player(0);
+        player.addCard(new Card(1));
+        player.addCard(new Card(1));
+        player.addCard(new Card(1));
+        player.addCard(new Card(1));
+        assertEquals(true, player.checkWin());
+        player.removeCard(0);
+        player.addCard(new Card(4));
+        assertEquals(false, player.checkWin());
+    }
 }
