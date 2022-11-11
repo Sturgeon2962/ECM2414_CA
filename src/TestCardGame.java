@@ -17,7 +17,7 @@ public class TestCardGame {
     @Test
     public void testNumberOfPlayers() throws FileNotFoundException {
         InputStream prev = System.in;
-        InputStream newStream = new FileInputStream("src/playerInputsTest.txt");
+        InputStream newStream = new FileInputStream("../src/playerInputsTest.txt");
         System.setIn(newStream);
         try {
             Console console = System.console();
