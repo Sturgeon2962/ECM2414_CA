@@ -18,4 +18,10 @@ public class CardDeck {
     public void addCard(Card card){
         cards.add(card);
     }
+
+    public Card removeCard(){
+        Card temp = cards.get(0);
+        cards.remove(0);
+        return temp;
+    }
 }
