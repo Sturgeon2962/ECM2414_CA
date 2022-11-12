@@ -12,16 +12,24 @@ public class Player extends Thread implements EndGameEventListener{
     private CardDeck rightDeck;
     private String outputFile;
 
+    /**
+     * Creates a new player with the given number used to specify:
+     * <ul>
+     * <li>player name</li>
+     * <li>player number</li>
+     * <li>player output file</li>
+     * </ul>
+     * Also creates an empty hand.
+     * 
+     * @param number the player number
+     */
     public Player (int number){
         setName("player"+number);
         setNumber(number);
         setHand(new Card[4]);
-        setOutputFile("player"+number+".txt");
-        
+        setOutputFile("player"+number+".txt");   
     }
 
-
-        
     public String getOutputFile() {
         return outputFile;
     }
@@ -59,6 +67,11 @@ public class Player extends Thread implements EndGameEventListener{
         this.hand = hand;
     }
 
+    /**
+     * Chooses a random card which if not of the target denomination to discard.
+     * 
+     * @return int conatining the index of the chosen card
+     */
     public int selectDiscardCard() {
         ArrayList<Card> discardCandidates = new ArrayList<>();
 
@@ -81,6 +94,12 @@ public class Player extends Thread implements EndGameEventListener{
         return -1;
     }
 
+    /**
+     * Adds a card to the free position in the players hand.
+     * 
+     * @param newCard the Card to be added to hand
+     * @throws HandFullException if the player's hand already contains 4 cards
+     */
     public void addCard(Card newCard) throws HandFullException {
         for (int i = 0; i < this.hand.length; i++) {
             if (this.hand[i] == null) {
@@ -91,17 +110,31 @@ public class Player extends Thread implements EndGameEventListener{
         throw new HandFullException("Hand is full of cards");
     }
 
+    /**
+     * Removes and returns the card at the given index.
+     * 
+     * @param index of the card to be removed
+     * @return the Card that has been removed
+     */
     public Card removeCard(int index) {
         Card temp = this.hand[index];
         this.hand[index] = null;
         return temp;
     }
 
+    /**
+     * Checks if the player has won i.e. all cards in hand are equal in denomination.
+     * 
+     * @return true if player has won, false otherwise
+     */
     public boolean checkWin(){
         boolean win = true;
+        if (hand[0] == null) {
+            return false;
+        }
         int firstCard = hand[0].getDenomination();
         for(Card card : hand){
-            if(card.getDenomination() != firstCard){
+            if(card == null || card.getDenomination() != firstCard){
                 win = false;
                 break;
             }
@@ -112,6 +145,7 @@ public class Player extends Thread implements EndGameEventListener{
     @Override
     public void eventOccured(EndGameEvent event) throws IOException{
         // TODO what the fuck happens when the game ends
+        System.out.println("game over");
     }
 
     @Override

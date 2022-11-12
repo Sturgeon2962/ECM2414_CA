@@ -1,7 +1,4 @@
 public class Card {
-    /**
-     * attributes for the card class
-     */
     private int denomination;
 
     public synchronized int getDenomination() {
@@ -13,8 +10,9 @@ public class Card {
     }
 
     /**
-     * Constructor to create a card object
-     * @param value Integer for the value of the card
+     * Creates a card object with specified denomination.
+     * 
+     * @param value Integer for the denomination of the card
      */
     public Card(int value){
         setDenomination(value);

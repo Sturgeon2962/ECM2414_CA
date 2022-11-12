@@ -59,5 +59,10 @@ public class TestPlayer {
         player.removeCard(0);
         player.addCard(new Card(4));
         assertEquals(false, player.checkWin());
+        // Check if called when hand not full
+        player.removeCard(1);
+        assertEquals(false, player.checkWin());
+        player.removeCard(0);
+        assertEquals(false, player.checkWin());
     }
 }
