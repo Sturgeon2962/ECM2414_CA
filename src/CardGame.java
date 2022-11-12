@@ -13,7 +13,7 @@ public class CardGame {
     public static ArrayList<Player> players;
     public static ArrayList<CardDeck> decks;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Console console = System.console();
         numPlayers = getNumOfPlayers(console);
         mainDeck = getDeck(console);
@@ -23,7 +23,7 @@ public class CardGame {
         decks = new ArrayList<>();
         for (int x = 0; x < numPlayers; x++){
             players.add(new Player(x+1));
-            decks.add(new CardDeck());
+            decks.add(new CardDeck(x+1));
         }
 
         Collections.shuffle(mainDeck);
@@ -48,7 +48,7 @@ public class CardGame {
     /**
      * Deals cards to all players and decks in a loop.
      * 
-     * @throws HandFullException if any of the players hands' are full
+     * @throws HandFullException if any of the players hands are full
      */
     public static void dealCards() throws HandFullException {
         for (int i = 0; i < numPlayers; i++) {

@@ -2,6 +2,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import java.io.IOException;
+
 import org.junit.experimental.categories.Category;
 
 public class TestPlayer {
@@ -9,12 +12,12 @@ public class TestPlayer {
     public TestPlayer() {}
 
     @Test
-    public void TestPlayerConstuctor() {
+    public void TestPlayerConstuctor() throws IOException {
         assertNotNull(new Player(1));
     }
 
     @Test(expected = HandFullException.class)
-    public void TestAddCard() throws HandFullException {
+    public void TestAddCard() throws HandFullException, IOException {
         Player player = new Player(1);
         player.addCard(new Card(3));
         player.addCard(new Card(3));
@@ -28,7 +31,7 @@ public class TestPlayer {
     }
 
     @Test
-    public void TestRemoveCard() throws HandFullException {
+    public void TestRemoveCard() throws HandFullException, IOException {
         Player player = new Player(1);
         player.addCard(new Card(3));
         player.addCard(new Card(5));
@@ -39,7 +42,7 @@ public class TestPlayer {
     }
 
     @Test
-    public void TestSelectDiscardCard() throws HandFullException {
+    public void TestSelectDiscardCard() throws HandFullException, IOException {
         Player player = new Player(1);
         player.addCard(new Card(1));
         player.addCard(new Card(1));
@@ -49,7 +52,7 @@ public class TestPlayer {
     }
 
     @Test
-    public void TestWin() throws HandFullException{
+    public void TestWin() throws HandFullException, IOException{
         Player player = new Player(0);
         player.addCard(new Card(1));
         player.addCard(new Card(1));

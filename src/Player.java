@@ -10,7 +10,7 @@ public class Player extends Thread implements EndGameEventListener{
     private Card[] hand;
     private CardDeck leftDeck;
     private CardDeck rightDeck;
-    private String outputFile;
+    private BasicWrite output;
 
     /**
      * Creates a new player with the given number used to specify:
@@ -23,18 +23,18 @@ public class Player extends Thread implements EndGameEventListener{
      * 
      * @param number the player number
      */
-    public Player (int number){
+    public Player (int number) throws IOException {
         setName("player"+number);
         setNumber(number);
         setHand(new Card[4]);
-        setOutputFile("player"+number+".txt");   
+        setOutput(new BasicWrite("player"+number+".txt"));
     }
 
-    public String getOutputFile() {
-        return outputFile;
+    public BasicWrite getOutput() {
+        return output;
     }
-    public void setOutputFile(String outputFile) {
-        this.outputFile = outputFile;
+    public void setOutput(BasicWrite output) {
+        this.output = output;
     }
     public void setRightDeck(CardDeck rightDeck) {
         this.rightDeck = rightDeck;
