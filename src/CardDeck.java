@@ -4,6 +4,15 @@ import java.util.ArrayList;
 public class CardDeck implements EndGameEventListener {
     ArrayList<Card> cards;
     private BasicWrite output;
+    private String deckName;
+
+    public String getDeckName() {
+        return deckName;
+    }
+
+    public void setDeckName(String deckName) {
+        this.deckName = deckName;
+    }
 
     public BasicWrite getOutputFile() {
         return output;
@@ -22,6 +31,7 @@ public class CardDeck implements EndGameEventListener {
     public CardDeck(int deckNum) throws IOException{
         cards = new ArrayList<>(); 
         setOutputFile(new BasicWrite("deck"+deckNum+".txt"));
+        setDeckName("deck "+deckNum);
     }
 
     public ArrayList<Card> getCards() {
@@ -48,7 +58,10 @@ public class CardDeck implements EndGameEventListener {
 
     @Override
     public void eventOccured(EndGameEvent event) throws IOException {
-        // TODO Auto-generated method stub
-        
+        String contents = "";
+        for (Card card : cards) {
+            contents = contents + card.getDenomination() + " ";
+        }
+        output.writeToFile(deckName + " contents: " + contents);
     }
 }

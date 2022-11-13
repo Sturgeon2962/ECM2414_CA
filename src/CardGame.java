@@ -12,8 +12,17 @@ public class CardGame {
     public static ArrayList<Card> mainDeck;
     public static ArrayList<Player> players;
     public static ArrayList<CardDeck> decks;
+    public static String winner;
 
-    public static void main(String[] args) throws IOException {
+    public static String getWinner() {
+		return winner;
+	}
+
+	public static void setWinner(String winner) {
+		CardGame.winner = winner;
+	}
+
+	public static void main(String[] args) throws IOException {
         Console console = System.console();
         numPlayers = getNumOfPlayers(console);
         mainDeck = getDeck(console);
@@ -25,6 +34,7 @@ public class CardGame {
             players.add(new Player(x+1));
             decks.add(new CardDeck(x+1));
         }
+        setPlayerDecks();
 
         Collections.shuffle(mainDeck);
         
@@ -32,6 +42,18 @@ public class CardGame {
             dealCards();
         } catch (HandFullException | IndexOutOfBoundsException e) {
             System.out.println("Error whilst dealing cards");
+        }
+
+        // Start the chaos
+        for (Player player : players) {
+            player.start();
+        }
+    }
+
+    public static void setPlayerDecks() {
+        for (Player player : players) {
+            player.setLeftDeck(decks.get(player.getNumber()-1));
+            player.setRightDeck(decks.get((player.getNumber())%numPlayers));
         }
     }
 
@@ -54,6 +76,8 @@ public class CardGame {
         for (int i = 0; i < numPlayers; i++) {
             for (int j = 0; j < numPlayers; j++) {
                 players.get(j).addCard(dealCard());
+            }
+            for (int j = 0; j < numPlayers; j++) {
                 decks.get(j).addCard(dealCard());
             }
         }

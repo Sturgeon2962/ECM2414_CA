@@ -1,0 +1,4 @@
+player 2 has informed player 4 that player 2 has won
+player 4 exits
+player 4 final hand: 5 1 7 1
+player 4 initial hand 5 1 7 1

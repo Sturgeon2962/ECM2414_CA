@@ -24,7 +24,7 @@ public class Player extends Thread implements EndGameEventListener{
      * @param number the player number
      */
     public Player (int number) throws IOException {
-        setName("player"+number);
+        setplayerName("player "+number);
         setNumber(number);
         setHand(new Card[4]);
         setOutput(new BasicWrite("player"+number+".txt"));
@@ -144,19 +144,62 @@ public class Player extends Thread implements EndGameEventListener{
 
     @Override
     public void eventOccured(EndGameEvent event) throws IOException{
-        // TODO what the fuck happens when the game ends
-        System.out.println("game over");
+        if (CardGame.getWinner().equals(playerName)) {
+            output.writeToFile(playerName + " wins");
+        } else {
+            output.writeToFile(CardGame.getWinner() + " has informed " + playerName + " that " + CardGame.getWinner() + " has won");
+        }
+        output.writeToFile(playerName + " exits");
+        output.writeToFile(playerName + " final hand: " + hand[0].getDenomination() + " " + hand[1].getDenomination() + " " + hand[2].getDenomination() + " " + hand[3].getDenomination());
     }
 
     @Override
     public void run(){
-        if(checkWin()){
-
-        } else {
-            Card cardToRemove = removeCard(selectDiscardCard());
-
+        try {
+            output.writeToFile(playerName + " initial hand " + hand[0].getDenomination() + " " + hand[1].getDenomination() + " " + hand[2].getDenomination() + " " + hand[3].getDenomination());
+        } catch (IOException e) {
+            System.out.println("IO error occurred");
+        }
+        for (;;) {
+            if (CardGame.getWinner() != null) {
+                return;
+            }
+            if(checkWin()){
+                System.out.println(playerName + " wins!");
+                CardGame.setWinner(playerName);
+                EndGameEvent gameOverEvent = new EndGameEvent(this, playerName);
+                try {
+                    for(EndGameEventListener listener : CardGame.players) {
+                        listener.eventOccured(gameOverEvent);
+                    }
+                    for(EndGameEventListener listener : CardGame.decks) {
+                        listener.eventOccured(gameOverEvent);
+                    }
+                } catch (IOException e) {
+                    System.out.println("IO error has occured");
+                }
+            } else {
+                synchronized(this){
+                    if (leftDeck.getCards().size() < 1) {
+                        continue;
+                    }
+                    Card cardToRemove = removeCard(selectDiscardCard());
+                    rightDeck.addCard(cardToRemove);
+                    Card newCard = leftDeck.removeCard();
+                    try {
+                        addCard(newCard);
+                    } catch (HandFullException e) {
+                        System.out.println("Player hand full");
+                    }
+                    try {
+                        output.writeToFile(playerName + " draws a " + newCard.getDenomination() + " from " + leftDeck.getDeckName());
+                        output.writeToFile(playerName + " discards a " + cardToRemove.getDenomination() + " from " + rightDeck.getDeckName());
+                        output.writeToFile(playerName + " current hand " + hand[0].getDenomination() + " " + hand[1].getDenomination() + " " + hand[2].getDenomination() + " " + hand[3].getDenomination());
+                    } catch (IOException e) {
+                        System.out.println("IO error occurred");
+                    }
+                }
+            }
         }
     }
 }
-
-
