@@ -144,6 +144,7 @@ public class Player extends Thread implements EndGameEventListener{
 
     @Override
     public void eventOccured(EndGameEvent event) throws IOException{
+        output.writeToFile("");
         if (CardGame.getWinner().equals(playerName)) {
             output.writeToFile(playerName + " wins");
         } else {
@@ -162,7 +163,7 @@ public class Player extends Thread implements EndGameEventListener{
         }
         for (;;) {
             if (CardGame.getWinner() != null) {
-                return;
+                break;
             }
             if(checkWin()){
                 System.out.println(playerName + " wins!");
@@ -180,6 +181,9 @@ public class Player extends Thread implements EndGameEventListener{
                 }
             } else {
                 synchronized(this){
+                    if (CardGame.getWinner() != null) {
+                        break;
+                    }
                     if (leftDeck.getCards().size() < 1) {
                         continue;
                     }
@@ -192,6 +196,7 @@ public class Player extends Thread implements EndGameEventListener{
                         System.out.println("Player hand full");
                     }
                     try {
+                        output.writeToFile("");
                         output.writeToFile(playerName + " draws a " + newCard.getDenomination() + " from " + leftDeck.getDeckName());
                         output.writeToFile(playerName + " discards a " + cardToRemove.getDenomination() + " from " + rightDeck.getDeckName());
                         output.writeToFile(playerName + " current hand " + hand[0].getDenomination() + " " + hand[1].getDenomination() + " " + hand[2].getDenomination() + " " + hand[3].getDenomination());
