@@ -116,15 +116,18 @@ public class CardGame {
      * @return An ArrayList<Card> containing all cards for the game
      */
     public static ArrayList<Card> getDeck(Console console){
-        ArrayList<Card> cardNumbers = new ArrayList<>();
-        System.out.println("Please enter valid deck location:");
+        ArrayList<Card> cardNumbers;
         do {
+            cardNumbers = new ArrayList<>();
+            System.out.println("Please enter valid deck location:");
             String deckLocation = console.readLine();
             // Read file line by line, creating cards with the values from each line
             try (BufferedReader reader = new BufferedReader(new FileReader(deckLocation))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    cardNumbers.add(new Card(Integer.valueOf(line)));
+                    Card newCard = new Card(Integer.valueOf(line));
+                    if (newCard.getDenomination() < 0) { break; }
+                    cardNumbers.add(newCard);
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("File could not be found");

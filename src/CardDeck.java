@@ -31,7 +31,7 @@ public class CardDeck implements EndGameEventListener {
     public CardDeck(int deckNum) throws IOException{
         cards = new ArrayList<>(); 
         setOutputFile(new BasicWrite("deck"+deckNum+".txt"));
-        setDeckName("deck "+deckNum);
+        setDeckName("deck"+deckNum);
     }
 
     public ArrayList<Card> getCards() {
@@ -60,8 +60,8 @@ public class CardDeck implements EndGameEventListener {
     public void eventOccured(EndGameEvent event) throws IOException {
         String contents = "";
         for (Card card : cards) {
-            contents = contents + card.getDenomination() + " ";
+            contents = contents + " " + card.getDenomination();
         }
-        output.writeToFile(deckName + " contents: " + contents);
+        output.writeToFile(deckName + " contents:" + contents);
     }
 }

@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class Player extends Thread implements EndGameEventListener{
 
@@ -198,8 +197,8 @@ public class Player extends Thread implements EndGameEventListener{
                     try {
                         output.writeToFile("");
                         output.writeToFile(playerName + " draws a " + newCard.getDenomination() + " from " + leftDeck.getDeckName());
-                        output.writeToFile(playerName + " discards a " + cardToRemove.getDenomination() + " from " + rightDeck.getDeckName());
-                        output.writeToFile(playerName + " current hand " + hand[0].getDenomination() + " " + hand[1].getDenomination() + " " + hand[2].getDenomination() + " " + hand[3].getDenomination());
+                        output.writeToFile(playerName + " discards a " + cardToRemove.getDenomination() + " to " + rightDeck.getDeckName());
+                        output.writeToFile(playerName + " current hand is " + hand[0].getDenomination() + " " + hand[1].getDenomination() + " " + hand[2].getDenomination() + " " + hand[3].getDenomination());
                     } catch (IOException e) {
                         System.out.println("IO error occurred");
                     }
