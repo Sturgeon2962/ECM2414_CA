@@ -121,8 +121,8 @@ public class TestPlayer {
         BufferedReader reader = new BufferedReader(new FileReader("player32.txt"));
         assertEquals("player 32 initial hand 32 32 32 1", reader.readLine());
         assertEquals("", reader.readLine());
-        assertEquals("player 32 draws a 32 from deck 2", reader.readLine());
-        assertEquals("player 32 discards a 1 to deck 4", reader.readLine());
+        assertEquals("player 32 draws a 32 from deck2", reader.readLine());
+        assertEquals("player 32 discards a 1 to deck4", reader.readLine());
         assertEquals("player 32 current hand is 32 32 32 32", reader.readLine());
         assertEquals("", reader.readLine());
         assertEquals("player 32 wins", reader.readLine());
