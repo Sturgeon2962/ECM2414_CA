@@ -27,6 +27,31 @@ public class TestCardGame {
         assertEquals(deck2, player1.getRightDeck());
         assertEquals(deck2, player2.getLeftDeck());
         assertEquals(deck1, player2.getRightDeck());
+    }
+
+    @Test
+    public void testDealCard(){
+        CardGame.mainDeck = new ArrayList<>();
+        CardGame.mainDeck.add(new Card(1));
+        assertEquals(1, CardGame.dealCard().getDenomination());
+        assertEquals(0,CardGame.mainDeck.size());
+    }
+
+    @Test
+    public void testDealCards() throws IOException{
+        CardGame.players = new ArrayList<>();
+        CardGame.players.add(new Player(0));
+        
+        CardGame.decks = new ArrayList<>();
+        CardGame.decks.add(new CardDeck(0));
+        
+        CardGame.mainDeck = new ArrayList<>();
+        CardGame.mainDeck.add(new Card(1));
+        CardGame.mainDeck.add(new Card(4));
+        CardGame.mainDeck.add(new Card(2));
+        CardGame.mainDeck.add(new Card(3));
+        assertEquals(,);
+        assertEquals(,);
 
     }
 }
