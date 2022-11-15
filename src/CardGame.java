@@ -73,7 +73,7 @@ public class CardGame {
      * @throws HandFullException if any of the players hands are full
      */
     public static void dealCards() throws HandFullException {
-        for (int i = 0; i < numPlayers; i++) {
+        for (int i = 0; i < 4; i++) {
             for (int j = 0; j < numPlayers; j++) {
                 players.get(j).addCard(dealCard());
             }
