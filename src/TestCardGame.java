@@ -38,7 +38,7 @@ public class TestCardGame {
     }
 
     @Test
-    public void testDealCards() throws IOException{
+    public void testDealCards() throws IOException, HandFullException{
         CardGame.players = new ArrayList<>();
         CardGame.players.add(new Player(0));
         
@@ -50,8 +50,16 @@ public class TestCardGame {
         CardGame.mainDeck.add(new Card(4));
         CardGame.mainDeck.add(new Card(2));
         CardGame.mainDeck.add(new Card(3));
-        assertEquals(,);
-        assertEquals(,);
+        CardGame.mainDeck.add(new Card(5));
+        CardGame.mainDeck.add(new Card(6));
+        CardGame.mainDeck.add(new Card(7));
+        CardGame.mainDeck.add(new Card(8));
+        CardGame.mainDeck.add(new Card(9));
+        CardGame.mainDeck.add(new Card(10));
 
+        CardGame.dealCards();
+
+        assertEquals(4, CardGame.players.get(0).getHand().length);
+        assertEquals(4, CardGame.decks.get(0).getCards().size());
     }
 }
