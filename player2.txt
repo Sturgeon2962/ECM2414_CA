@@ -1,41 +1,81 @@
-player 2 initial hand 7 3 5 2
-
-player 2 draws a 8 from deck 2
-player 2 discards a 3 from deck 3
-player 2 current hand 7 8 5 2
-
-player 2 draws a 8 from deck 2
-player 2 discards a 5 from deck 3
-player 2 current hand 7 8 8 2
-
-player 2 draws a 1 from deck 2
-player 2 discards a 8 from deck 3
-player 2 current hand 7 8 1 2
-
-player 2 draws a 1 from deck 2
-player 2 discards a 1 from deck 3
-player 2 current hand 7 8 1 2
-
-player 2 draws a 4 from deck 2
-player 2 discards a 1 from deck 3
-player 2 current hand 7 8 4 2
-
-player 2 draws a 2 from deck 2
-player 2 discards a 4 from deck 3
-player 2 current hand 7 8 2 2
+player 2 initial hand 1 8 8 1
 
 player 2 draws a 5 from deck 2
 player 2 discards a 8 from deck 3
-player 2 current hand 7 5 2 2
+player 2 current hand 1 8 5 1
+
+player 2 draws a 1 from deck 2
+player 2 discards a 5 from deck 3
+player 2 current hand 1 8 1 1
+
+player 2 draws a 7 from deck 2
+player 2 discards a 1 from deck 3
+player 2 current hand 1 8 1 7
+
+player 2 draws a 1 from deck 2
+player 2 discards a 1 from deck 3
+player 2 current hand 1 8 1 7
+
+player 2 draws a 6 from deck 2
+player 2 discards a 8 from deck 3
+player 2 current hand 1 6 1 7
+
+player 2 draws a 4 from deck 2
+player 2 discards a 1 from deck 3
+player 2 current hand 4 6 1 7
+
+player 2 draws a 8 from deck 2
+player 2 discards a 1 from deck 3
+player 2 current hand 4 6 8 7
+
+player 2 draws a 5 from deck 2
+player 2 discards a 4 from deck 3
+player 2 current hand 5 6 8 7
+
+player 2 draws a 7 from deck 2
+player 2 discards a 8 from deck 3
+player 2 current hand 5 6 7 7
+
+player 2 draws a 5 from deck 2
+player 2 discards a 5 from deck 3
+player 2 current hand 5 6 7 7
 
 player 2 draws a 3 from deck 2
-player 2 discards a 5 from deck 3
-player 2 current hand 7 3 2 2
+player 2 discards a 7 from deck 3
+player 2 current hand 5 6 3 7
 
 player 2 draws a 2 from deck 2
 player 2 discards a 3 from deck 3
-player 2 current hand 7 2 2 2
+player 2 current hand 5 6 2 7
 
-player 4 has informed player 2 that player 4 has won
+player 2 draws a 2 from deck 2
+player 2 discards a 5 from deck 3
+player 2 current hand 2 6 2 7
+
+player 2 draws a 3 from deck 2
+player 2 discards a 6 from deck 3
+player 2 current hand 2 3 2 7
+
+player 2 draws a 7 from deck 2
+player 2 discards a 3 from deck 3
+player 2 current hand 2 7 2 7
+
+player 2 draws a 5 from deck 2
+player 2 discards a 7 from deck 3
+player 2 current hand 2 7 2 5
+
+player 2 draws a 2 from deck 2
+player 2 discards a 7 from deck 3
+player 2 current hand 2 2 2 5
+
+player 2 draws a 6 from deck 2
+player 2 discards a 5 from deck 3
+player 2 current hand 2 2 2 6
+
+player 2 draws a 2 from deck 2
+player 2 discards a 6 from deck 3
+player 2 current hand 2 2 2 2
+
+player 2 wins
 player 2 exits
-player 2 final hand: 7 2 2 2
+player 2 final hand: 2 2 2 2
