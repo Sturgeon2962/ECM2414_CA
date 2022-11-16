@@ -32,4 +32,38 @@ public class TestCardGame {
         assertEquals(deck2, player2.getLeftDeck());
         assertEquals(deck1, player2.getRightDeck());
     }
+
+    @Test
+    public void testDealCard(){
+        CardGame.mainDeck = new ArrayList<>();
+        CardGame.mainDeck.add(new Card(1));
+        assertEquals(1, CardGame.dealCard().getDenomination());
+        assertEquals(0,CardGame.mainDeck.size());
+    }
+
+    @Test
+    public void testDealCards() throws IOException, HandFullException{
+        CardGame.players = new ArrayList<>();
+        CardGame.players.add(new Player(0));
+        
+        CardGame.decks = new ArrayList<>();
+        CardGame.decks.add(new CardDeck(0));
+        
+        CardGame.mainDeck = new ArrayList<>();
+        CardGame.mainDeck.add(new Card(1));
+        CardGame.mainDeck.add(new Card(4));
+        CardGame.mainDeck.add(new Card(2));
+        CardGame.mainDeck.add(new Card(3));
+        CardGame.mainDeck.add(new Card(5));
+        CardGame.mainDeck.add(new Card(6));
+        CardGame.mainDeck.add(new Card(7));
+        CardGame.mainDeck.add(new Card(8));
+        CardGame.mainDeck.add(new Card(9));
+        CardGame.mainDeck.add(new Card(10));
+
+        CardGame.dealCards();
+
+        assertEquals(4, CardGame.players.get(0).getHand().length);
+        assertEquals(4, CardGame.decks.get(0).getCards().size());
+    }
 }
