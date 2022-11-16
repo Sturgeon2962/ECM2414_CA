@@ -43,6 +43,8 @@ public class TestCardGame {
 
     @Test
     public void testDealCards() throws IOException, HandFullException{
+        CardGame.numPlayers = 1;
+
         CardGame.players = new ArrayList<>();
         CardGame.players.add(new Player(0));
         
@@ -51,15 +53,13 @@ public class TestCardGame {
         
         CardGame.mainDeck = new ArrayList<>();
         CardGame.mainDeck.add(new Card(1));
-        CardGame.mainDeck.add(new Card(4));
         CardGame.mainDeck.add(new Card(2));
         CardGame.mainDeck.add(new Card(3));
+        CardGame.mainDeck.add(new Card(4));
         CardGame.mainDeck.add(new Card(5));
         CardGame.mainDeck.add(new Card(6));
         CardGame.mainDeck.add(new Card(7));
         CardGame.mainDeck.add(new Card(8));
-        CardGame.mainDeck.add(new Card(9));
-        CardGame.mainDeck.add(new Card(10));
 
         CardGame.dealCards();
 
