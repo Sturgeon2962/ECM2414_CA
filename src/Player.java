@@ -161,9 +161,6 @@ public class Player extends Thread implements EndGameEventListener{
             System.out.println("IO error occurred");
         }
         for (;;) {
-            if (CardGame.getWinner() != null) {
-                break;
-            }
             if(checkWin()){
                 System.out.println(playerName + " wins!");
                 CardGame.setWinner(playerName);
@@ -178,6 +175,7 @@ public class Player extends Thread implements EndGameEventListener{
                 } catch (IOException e) {
                     System.out.println("IO error has occured");
                 }
+                break;
             } else {
                 synchronized(this){
                     if (CardGame.getWinner() != null) {

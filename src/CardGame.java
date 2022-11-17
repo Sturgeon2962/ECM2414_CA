@@ -10,9 +10,9 @@ public class CardGame {
 
     public static int numPlayers;
     public static ArrayList<Card> mainDeck;
-    public static ArrayList<Player> players;
-    public static ArrayList<CardDeck> decks;
-    public static String winner;
+    public static volatile ArrayList<Player> players;
+    public static volatile ArrayList<CardDeck> decks;
+    public static volatile String winner;
 
     public static String getWinner() {
 		return winner;
