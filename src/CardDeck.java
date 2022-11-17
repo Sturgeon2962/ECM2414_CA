@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CardDeck implements EndGameEventListener {
-    ArrayList<Card> cards;
+    private ArrayList<Card> cards;
     private BasicWrite output;
     private String deckName;
 
