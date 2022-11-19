@@ -12,10 +12,12 @@ public class TestPlayer {
 
     @Test
     public void testPlayerConstuctor() throws IOException {
-        assertNotNull(new Player(1));
+        Player player = new Player(1);
+        assertNotNull(player);
+        assertEquals(1, player.getNumber());
     }
 
-    @Test(expected = HandFullException.class)
+    @Test
     public void testAddCard() throws HandFullException, IOException {
         Player player = new Player(1);
         player.addCard(new Card(3));
@@ -26,6 +28,15 @@ public class TestPlayer {
         player.removeCard(2);
         player.addCard(new Card(8));
         assertEquals(new Card(8).getDenomination(), player.getHand()[2].getDenomination());
+    }
+
+    @Test(expected = HandFullException.class)
+    public void testAddCardException() throws HandFullException, IOException {
+        Player player = new Player(1);
+        player.addCard(new Card(3));
+        player.addCard(new Card(3));
+        player.addCard(new Card(1));
+        player.addCard(new Card(3));
         player.addCard(new Card(3));
     }
 
@@ -84,6 +95,7 @@ public class TestPlayer {
         assertEquals("player 12 exits", reader.readLine());
         assertEquals("player 12 final hand: 1 1 1 1", reader.readLine());
         reader.close();
+
         // Test when other wins
         Player player2 = new Player(50);
         for (int i = 0; i < 2; i++) {
@@ -116,8 +128,10 @@ public class TestPlayer {
         player2.setLeftDeck(left);
         player2.setRightDeck(right);
         player2.run();
+        
         assertEquals(0, left.getCards().size());
         assertEquals(1, right.getCards().size());
+
         BufferedReader reader = new BufferedReader(new FileReader("player32.txt"));
         assertEquals("player 32 initial hand 32 32 32 1", reader.readLine());
         assertEquals("", reader.readLine());

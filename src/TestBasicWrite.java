@@ -10,6 +10,12 @@ public class TestBasicWrite {
     public TestBasicWrite(){}
 
     @Test
+    public void testBasicWriteConstructor() throws IOException {
+        BasicWrite out = new BasicWrite("test.txt");
+        assertNotNull(out);
+    }
+
+    @Test
     public void testWriteToFile() throws IOException {
         BasicWrite writer = new BasicWrite("test.txt");
         writer.writeToFile("testing writing to file");

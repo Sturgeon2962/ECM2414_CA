@@ -1,10 +1,9 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TestCardGame {
     public TestCardGame(){}
@@ -41,29 +40,35 @@ public class TestCardGame {
         assertEquals(0,CardGame.mainDeck.size());
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testDealCardException() {
+        CardGame.mainDeck = new ArrayList<>();
+
+        CardGame.dealCard();
+    }
+
     @Test
     public void testDealCards() throws IOException, HandFullException{
-        CardGame.numPlayers = 1;
+        CardGame.numPlayers = 2;
 
         CardGame.players = new ArrayList<>();
         CardGame.players.add(new Player(0));
+        CardGame.players.add(new Player(1));
         
         CardGame.decks = new ArrayList<>();
         CardGame.decks.add(new CardDeck(0));
+        CardGame.decks.add(new CardDeck(1));
         
         CardGame.mainDeck = new ArrayList<>();
-        CardGame.mainDeck.add(new Card(1));
-        CardGame.mainDeck.add(new Card(2));
-        CardGame.mainDeck.add(new Card(3));
-        CardGame.mainDeck.add(new Card(4));
-        CardGame.mainDeck.add(new Card(5));
-        CardGame.mainDeck.add(new Card(6));
-        CardGame.mainDeck.add(new Card(7));
-        CardGame.mainDeck.add(new Card(8));
+        for (int i = 0; i < 16; i++) {
+            CardGame.mainDeck.add(new Card(i+1));
+        }
 
         CardGame.dealCards();
 
-        assertEquals(4, CardGame.players.get(0).getHand().length);
+        assertEquals(false, Arrays.asList(CardGame.players.get(0)).contains(null));
         assertEquals(4, CardGame.decks.get(0).getCards().size());
+        assertEquals(false, Arrays.asList(CardGame.players.get(1)).contains(null));
+        assertEquals(4, CardGame.decks.get(1).getCards().size());
     }
 }

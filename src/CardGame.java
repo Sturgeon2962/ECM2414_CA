@@ -90,7 +90,7 @@ public class CardGame {
      * @param console to take input from
      * @return An int of the number of players in the game
      */
-    public static int getNumOfPlayers(Console console){
+    public static int getNumOfPlayers(Console console) {
         System.out.println("Please enter the number of players:");
         int numPlayers = -1;
         do {
@@ -115,7 +115,7 @@ public class CardGame {
      * @param console to take input from
      * @return An ArrayList<Card> containing all cards for the game
      */
-    public static ArrayList<Card> getDeck(Console console){
+    public static ArrayList<Card> getDeck(Console console) {
         ArrayList<Card> cardNumbers;
         do {
             cardNumbers = new ArrayList<>();
