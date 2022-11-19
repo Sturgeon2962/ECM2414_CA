@@ -51,6 +51,12 @@ public class TestPlayer {
         assertEquals(player.getHand()[1], null);
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveCardException() throws IOException {
+        Player player = new Player(0);
+        player.removeCard(5);
+    }
+
     @Test
     public void testSelectDiscardCard() throws HandFullException, IOException {
         Player player = new Player(1);

@@ -115,7 +115,7 @@ public class Player extends Thread implements EndGameEventListener{
      * @param index of the card to be removed
      * @return the Card that has been removed
      */
-    public Card removeCard(int index) {
+    public Card removeCard(int index) throws IndexOutOfBoundsException {
         Card temp = this.hand[index];
         this.hand[index] = null;
         return temp;
