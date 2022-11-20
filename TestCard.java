@@ -1,19 +1,27 @@
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
+import org.junit.Before;
+
 public class TestCard {
+    Card card;
 
     public TestCard() {}
 
+    @Before
+    public void createCard() {
+        card = new Card(5);
+    }
+
     @Test
     public void testCardConstructor() {
-        Card card = new Card(5);
         assertNotNull(card);
         assertEquals(5, card.getDenomination());
     }
 
     @Test
     public void testDenomination() {
-        assertEquals(69, (new Card(69)).getDenomination());
+        assertEquals(5, card.getDenomination());
     }
 }
