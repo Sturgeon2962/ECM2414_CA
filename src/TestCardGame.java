@@ -1,8 +1,10 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,8 +21,8 @@ public class TestCardGame {
     public void initialisation() throws IOException {
         player1 = new Player(1);
         player2 = new Player(2);
-        deck1 = new CardDeck(1);
-        deck2 = new CardDeck(2);
+        deck1 = new CardDeck(2);
+        deck2 = new CardDeck(4);
 
         CardGame.numPlayers = 2;
         CardGame.mainDeck = new ArrayList<>();

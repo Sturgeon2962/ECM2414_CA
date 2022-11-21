@@ -15,6 +15,9 @@ public class TestPlayer {
     Player player2;
     File output1;
     File output2;
+    File output3;
+    File output4;
+    File output5;
     
     public TestPlayer() {}
 
@@ -24,6 +27,9 @@ public class TestPlayer {
         player2 = new Player(50);
         output1 = new File("player1.txt");
         output2 = new File("player50.txt");
+        output3 = new File("deck2.txt");
+        output4 = new File("deck4.txt");
+        output5 = new File("player2.txt");
     }
 
     @Test
@@ -163,5 +169,8 @@ public class TestPlayer {
     public void deleteOutputs() {
         output1.delete();
         output2.delete();
+        output3.delete();
+        output4.delete();
+        output5.delete();
     }
 }
