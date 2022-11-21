@@ -11,25 +11,25 @@ import java.io.IOException;
 
 public class TestBasicWrite {
     File output;
+    BasicWrite out;
 
     public TestBasicWrite(){}
 
     @Before
-    public void createOutputFile() {
+    public void createOutputFile() throws IOException {
         output = new File("test.txt");
+        out = new BasicWrite("test.txt");
     }
 
     @Test
     public void testBasicWriteConstructor() throws IOException {
-        BasicWrite out = new BasicWrite("test.txt");
         assertNotNull(out);
     }
 
     @Test
     public void testWriteToFile() throws IOException {
-        BasicWrite writer = new BasicWrite("test.txt");
-        writer.writeToFile("testing writing to file");
-        BufferedReader reader = new BufferedReader(new FileReader("test.txt"));
+        out.writeToFile("testing writing to file");
+        BufferedReader reader = new BufferedReader(new FileReader(output));
         assertEquals("testing writing to file", reader.readLine());
         reader.close();
     }

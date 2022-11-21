@@ -61,6 +61,7 @@ public class TestPlayer {
         player.addCard(new Card(3));
         assertEquals(new Card(5).getDenomination(), player.removeCard(1).getDenomination());
         assertEquals(player.getHand()[1], null);
+        assertEquals(null, player.removeCard(1));
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
