@@ -1,4 +1,4 @@
-If the test files are not compiled, navigate to ECM2414_CA folder in terminal and run following commands this if for mac/linux:
+If the test files are not compiled (they should be compiled), navigate to ECM2414_CA folder in terminal and run following commands this if for mac/linux:
 javac -classpath lib/junit-4.13.2.jar:src src/TestCard.java
 javac -classpath lib/junit-4.13.2.jar:src src/TestCardDeck.java
 javac -classpath lib/junit-4.13.2.jar:src src/TestCardGame.java
